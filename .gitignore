@@ -1,0 +1,30 @@
+# Node.js modules
+/node_modules/
+
+# Logs
+*.log
+logs/
+
+# Environment variables file
+.env
+
+# Operating System files
+.DS_Store          # macOS
+Thumbs.db          # Windows
+
+# npm package-lock file
+package-lock.json
+
+# Build directories
+/dist
+/build
+
+# IDE or editor-specific files
+.vscode/
+.idea/
+
+# Dependency directories
+bower_components/
+
+# MacOS-specific system files
+*.swp  # Swap files
