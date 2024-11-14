@@ -22,7 +22,7 @@ const homeRequestHandler = async (req, res) => {
       if (emailFound) {
         return res.status(200).send("Email Exist, Validation Approved");
       } else {
-        return res.status(200).send("Email Doesnt Exist, Validation Denied");
+        return res.status(404).send("Email Doesnt Exist, Validation Denied");
       }
     }
   } catch (error) {
