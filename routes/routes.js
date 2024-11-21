@@ -4,5 +4,5 @@ const {homeRequestHandler,postgressDataHandler} = require("../controllers/contro
 // routes are specified
 router.route("/").get(homeRequestHandler);
 router.route("/postgressData").get(postgressDataHandler);
-
+// 
 module.exports = router;

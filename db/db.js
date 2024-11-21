@@ -51,7 +51,7 @@ const redis = new Redis({
   db: 0,
   password: process.env.REDIS_PASSWORD,
 });
-
+// 
 redis.on("connect", () => {
   console.log("Connected to Redis");
 });

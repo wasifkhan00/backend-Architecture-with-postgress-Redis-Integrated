@@ -11,7 +11,7 @@ const homeRequestHandler = async (req, res) => {
       const redisDataParsed = JSON.parse(FetchEmailsFromRedisCache);
 
       let emailFound = false;
-
+// 
       for (const emails of redisDataParsed) {
         if (emails.email === requestedEmail) {
           emailFound = true;
