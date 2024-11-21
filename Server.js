@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3009;
 const routeHandler = require("./routes/routes");
 const { limiter } = require("./middlewares/middlewares");
 const { cacheData } = require("./db/cache");
@@ -14,14 +14,22 @@ const retriggerCache = async () => {
     await cacheData();
   }
 };
+const retriggerCacheP = async () => {
+  const redisKey = "users:postgressData";
+  const TTL = await redis.ttl(redisKey);
+  if (TTL === -2) {
+    await cacheData();
+  }
+};
 
 const refreshCache = () => {
   cacheData();
   setInterval(async () => {
     await retriggerCache();
+    await retriggerCacheP();
   }, 3650 * 1000);
 };
-
+// 
 refreshCache();
 app.use(express.json());
 app.use(limiter);
