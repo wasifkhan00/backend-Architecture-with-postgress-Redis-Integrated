@@ -31,6 +31,7 @@ const refreshCache = () => {
 };
 // 
 refreshCache();
+app.set('trust proxy', true);
 app.use(express.json());
 app.use(limiter);
 app.use(routeHandler);
