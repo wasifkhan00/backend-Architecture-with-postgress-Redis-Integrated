@@ -31,6 +31,7 @@ const refreshCache = () => {
 };
 // 
 refreshCache();
+app.use(express.static('Public'))
 app.use(express.json());
 app.use(limiter);
 app.use(routeHandler);

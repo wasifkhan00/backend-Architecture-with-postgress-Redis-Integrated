@@ -2,7 +2,8 @@ const { fetchUsersData } = require("../db/cache");
 const { redis, pool } = require("../db/db");
 // receive the email in the request that has to be validated and server checks the data in redis if it exists it is returned otherwise 404 response is provided
 const homeRequestHandler = async (req, res) => {
-  const requestedEmail = req.body.email;
+  // const requestedEmail = req.body.email;
+  const requestedEmail = req.query.email;
   const redisKey = "users:email";
   try {
     const FetchEmailsFromRedisCache = await redis.get(redisKey);
@@ -34,7 +35,9 @@ const homeRequestHandler = async (req, res) => {
   }
 };
 const postgressDataHandler = async (req, res) => {
-  const requestedEmail = req.body.name;
+  // const requestedEmail = req.body.name;
+  const requestedEmail = req.query.name;
+  console.log(requestedEmail)
   const redisKey = `users:postgressData`;
   try {
     const FetchEmailsFromRedisCache = await redis.get(redisKey);
